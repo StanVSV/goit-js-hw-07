@@ -1,3 +1,5 @@
+const galleryElement = document.querySelector('.gallery');
+
 const images = [
   {
     url: 'https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
@@ -27,3 +29,16 @@ const images = [
     alt: 'Zebras on Zebra',
   },
 ];
+
+const galleryItems = images.map(image => {
+  const listItem = document.createElement('li');
+  const imgElement = document.createElement('img');
+
+  imgElement.src = image.url;
+  imgElement.alt = image.alt;
+
+  listItem.appendChild(imgElement);
+  return listItem;
+});
+
+galleryElement.append(...galleryItems);
